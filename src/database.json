@@ -1,83 +1,83 @@
 [
-    {
-        "Name": "Azzanadra",
-        "Species/Race": "Mahjarrat",
-        "Homeland": "Freneskae",
-        "Release Year": "2005",
-        "Quest Series": "Mahjarrat Mysteries",
-        "Examine": "A Mahjarrat warrior. ",
-        "Picture": "https://runescape.wiki/images/Azzanadra_ghost_chathead.png?91ff8&20240220235159"
-    },
-    {
-        "Name": "Zaros",
-        "Species/Race": "God",
-        "Homeland": "Freneskae",
-        "Release Year": "2009",
-        "Quest Series": "Mahjarrat Mysteries",
-        "Examine": "This is his incorporeal form.",
-        "Picture": "https://runescape.wiki/images/Zaros_chathead.png?f8645"
-    },
-    {
-        "Name": "Guthix",
-        "Species/Race": "Naragi",
-        "Homeland": "Naragun",
-        "Release Year": "2013",
-        "Quest Series": "Sliske's Game",
-        "Examine": "N/A",
-        "Picture": "https://runescape.wiki/w/File:Guthix_(god).png"
-    },
-    {
-        "Name": "Lowerniel Drakan",
-        "Species/Race": "Vampyre",
-        "Homeland": "Vampyrium",
-        "Release Year": "2015",
-        "Quest Series": "Myreque",
-        "Examine": "The Lord of Vampyrium.",
-        "Picture": "https://runescape.wiki/images/Lowerniel_Drakan_chathead.png?b304e"
-    },
-    {
-        "Name": "Vanescula Drakan",
-        "Species/Race": "Vampyre",
-        "Homeland": "Vampyrium",
-        "Release Year": "2006",
-        "Quest Series": "Myreque",
-        "Examine": "She seems almost human.",
-        "Picture": "https://runescape.wiki/images/Vanescula_Drakan_%28human%29_chathead.png?9fe47"
-    },
-    {
-        "Name": "Veliaf",
-        "Species/Race": "Human",
-        "Homeland": "Unknown",
-        "Release Year": "2005",
-        "Quest Series": "Myreque",
-        "Examine": "Looks like the leader of the Myreque.",
-        "Picture": "https://runescape.wiki/w/File:Veliaf_Hurtz_chathead.png"
-    },
-    {
-        "Name": "Bob",
-        "Species/Race": "Human",
-        "Homeland": "Lumbridge",
-        "Release Year": "2001",
-        "Quest Series": "Cave Goblin",
-        "Examine": "An expert on axes.",
-        "Picture": "https://runescape.wiki/w/File:Bob_chathead.png"
-    },
-    {
-        "Name": "Hans",
-        "Species/Race": "Human",
-        "Homeland": "Lumbridge",
-        "Release Year": "2001",
-        "Quest Series": "Cave Goblin",
-        "Examine": "Servant of the Duke of Lumbridge.",
-        "Picture": "https://runescape.wiki/w/File:Hans_chathead.png"
-    },
-    {
-        "Name": "Iban",
-        "Species/Race": "Human/God",
-        "Homeland": "Unknown",
-        "Release Year": "2003",
-        "Quest Series": "Elf",
-        "Examine": "The great and dreadful Lord *.",
-        "Picture": "https://runescape.wiki/w/File:Lord_Iban_chathead.png"
-    }
+  {
+    "Name": "Azzanadra",
+    "Species/Race": "Mahjarrat",
+    "Homeland": "Freneskae",
+    "Release Year": "2005",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "A Mahjarrat warrior. ",
+    "Picture": "https://runescape.wiki/images/Azzanadra_ghost_chathead.png?91ff8&20240220235159"
+  },
+  {
+    "Name": "Zaros",
+    "Species/Race": "God",
+    "Homeland": "Freneskae",
+    "Release Year": "2009",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "This is his incorporeal form.",
+    "Picture": "https://runescape.wiki/images/Zaros_chathead.png?f8645"
+  },
+  {
+    "Name": "Guthix",
+    "Species/Race": "Naragi",
+    "Homeland": "Naragun",
+    "Release Year": "2013",
+    "Quest Series": "Sliske's Game",
+    "Examine": "N/A",
+    "Picture": "https://runescape.wiki/images/thumb/Guthix_%28god%29.png/475px-Guthix_%28god%29.png?56631&20240703171928"
+  },
+  {
+    "Name": "Lowerniel Drakan",
+    "Species/Race": "Vampyre",
+    "Homeland": "Vampyrium",
+    "Release Year": "2015",
+    "Quest Series": "Myreque",
+    "Examine": "The Lord of Vampyrium.",
+    "Picture": "https://runescape.wiki/images/Lowerniel_Drakan_chathead.png?b304e"
+  },
+  {
+    "Name": "Vanescula Drakan",
+    "Species/Race": "Vampyre",
+    "Homeland": "Vampyrium",
+    "Release Year": "2006",
+    "Quest Series": "Myreque",
+    "Examine": "She seems almost human.",
+    "Picture": "https://runescape.wiki/images/Vanescula_Drakan_%28human%29_chathead.png?9fe47"
+  },
+  {
+    "Name": "Veliaf",
+    "Species/Race": "Human",
+    "Homeland": "Unknown",
+    "Release Year": "2005",
+    "Quest Series": "Myreque",
+    "Examine": "Looks like the leader of the Myreque.",
+    "Picture": "https://runescape.wiki/images/archive/20220814153513%21Veliaf_Hurtz_chathead.png?af3ba"
+  },
+  {
+    "Name": "Bob",
+    "Species/Race": "Human",
+    "Homeland": "Lumbridge",
+    "Release Year": "2001",
+    "Quest Series": "Cave Goblin",
+    "Examine": "An expert on axes.",
+    "Picture": "https://runescape.wiki/images/Bob_%28smith%29_chathead.png?41698&20210118114800"
+  },
+  {
+    "Name": "Hans",
+    "Species/Race": "Human",
+    "Homeland": "Lumbridge",
+    "Release Year": "2001",
+    "Quest Series": "Cave Goblin",
+    "Examine": "Servant of the Duke of Lumbridge.",
+    "Picture": "https://runescape.wiki/images/Hans_chathead.png?73d98&20211218135729"
+  },
+  {
+    "Name": "Iban",
+    "Species/Race": "Human/God",
+    "Homeland": "Unknown",
+    "Release Year": "2003",
+    "Quest Series": "Elf",
+    "Examine": "The great and dreadful Lord *.",
+    "Picture": "https://runescape.wiki/images/Lord_Iban_chathead.png?66bfe&20210517085102"
+  }
 ]

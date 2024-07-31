@@ -1,4 +1,4 @@
-body{
+body {
   background: rgba(180, 179, 179, 0.692);
   background-image: url("./images/bg.png");
   background-blend-mode: overlay;
@@ -16,6 +16,12 @@ body{
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.ImageContainer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {

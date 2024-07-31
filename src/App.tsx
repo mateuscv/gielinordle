@@ -2,6 +2,11 @@ import React, { useRef, useState } from "react";
 import "./App.css";
 import Card from "react-bootstrap/Card";
 import myData from "./database.json";
+import { Button } from "react-bootstrap";
+
+function refreshPage() {
+  window.location.reload();
+}
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
@@ -15,25 +20,67 @@ function compareStrings(stringA: string, stringB: string) {
   }
 }
 
+function fetchCharacterData(characterName: string) {
+  const characterIndex = myData.findIndex((obj) => obj.Name == characterName);
+  const character = myData[characterIndex];
+  return character;
+}
+
 const chosenCharacter = myData[getRandomInt(Object.keys(myData).length)];
 
 function App() {
   const [charName, setName] = useState("");
+  const [result, setResult] = useState<React.ReactNode>(null);
 
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-
     if (compareStrings(charName, chosenCharacter.Name)) {
-      alert(`Congratulations, you won!`);
-      return (
+      setResult(
         <>
-          <p>
-            Your guess: <img src={chosenCharacter.Picture} />
-          </p>
-          <p>{chosenCharacter.Name}</p>
-          <p>chosenCharacter.Examine</p>
+          <div
+            className="ImageContainer justify-content-center align-items-center"
+            style={{ textAlign: "center", width: "150px" }}
+          >
+            <img
+              src={chosenCharacter.Picture}
+              alt="Character Picture"
+              style={{ maxWidth: "100%", display: "inline-block" }}
+            />
+          </div>
+          <h2>{chosenCharacter.Name} </h2>
+          <p>{chosenCharacter.Examine}</p>
+          <Button variant="secondary" onClick={refreshPage}>
+            Play Again
+          </Button>
+          <br />
         </>
       );
+    } else {
+      const characterData = await fetchCharacterData(charName);
+      if (
+        compareStrings(
+          characterData["Release Year"],
+          chosenCharacter["Release Year"]
+        )
+      ) {
+        setResult(<p>Same Release Year</p>);
+      } else if (
+        compareStrings(
+          characterData["Quest Series"],
+          chosenCharacter["Quest Series"]
+        )
+      ) {
+        setResult(<p>Same Quest Series</p>);
+      } else if (
+        compareStrings(
+          characterData["Species/Race"],
+          chosenCharacter["Species/Race"]
+        )
+      ) {
+        setResult(<p>Same Species/Race</p>);
+      } else {
+        setResult(<p>No match found</p>);
+      }
     }
   };
   return (
@@ -44,7 +91,6 @@ function App() {
         <Card.Body>
           <Card.Title style={{ fontSize: "24pt" }}>RUNEDLE</Card.Title>
           <Card.Text>
-            <p>Answer is "{chosenCharacter.Name}".</p>
             <form onSubmit={handleSubmit}>
               <label style={{ textAlign: "left" }}>
                 Enter your guess...
@@ -56,6 +102,8 @@ function App() {
                 />
               </label>
             </form>
+            <br />
+            <div className="result">{result}</div>
             <br />
             <table
               id="guesses"
