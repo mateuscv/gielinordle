@@ -3,6 +3,7 @@ import "./App.css";
 import Card from "react-bootstrap/Card";
 import myData from "./database.json";
 import correctSFX from "./sfx/correct.mp3";
+import matchSFX from "./sfx/categoryMatch.mp3";
 import { Button } from "react-bootstrap";
 
 type MatchValue = {
@@ -19,6 +20,19 @@ type GuessData = {
   releaseYear: MatchValue;
   questSeries: MatchValue;
 };
+
+function playMatchSFX() {
+  const audio = new Audio(matchSFX);
+  audio.play();
+}
+
+function playSoundWithDelay(delay: number, match: boolean) {
+  if (match) {
+    setTimeout(() => {
+      playMatchSFX();
+    }, delay);
+  }
+}
 
 function playCorrectSFX() {
   const audio = new Audio(correctSFX);
@@ -212,54 +226,69 @@ function App() {
                         backgroundColor: row.name.isMatch ? "green" : "#751512",
                         color: "white",
                       }}
+                      onAnimationStart={() =>
+                        playSoundWithDelay(0, row.name.isMatch)
+                      }
                     >
                       {row.name.value}
                     </td>
                     <td
                       className="table-cell   px-4 py-2"
                       style={{
+                        animationDelay: "0.5s",
                         backgroundColor: row.species.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        animationDelay: `1s`,
                       }}
+                      onAnimationStart={() =>
+                        playSoundWithDelay(0.5, row.species.isMatch)
+                      }
                     >
                       {row.species.value}
                     </td>
                     <td
                       className="table-cell  px-4 py-2"
                       style={{
+                        animationDelay: "1s",
                         backgroundColor: row.homeland.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        animationDelay: `1.5s`,
                       }}
+                      onAnimationStart={() =>
+                        playSoundWithDelay(1, row.homeland.isMatch)
+                      }
                     >
                       {row.homeland.value}
                     </td>
                     <td
                       className="table-cell   px-4 py-2"
                       style={{
+                        animationDelay: "1.5s",
                         backgroundColor: row.releaseYear.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        animationDelay: `2s`,
                       }}
+                      onAnimationStart={() =>
+                        playSoundWithDelay(1.5, row.releaseYear.isMatch)
+                      }
                     >
                       {row.releaseYear.value}
                     </td>
                     <td
                       className="table-cell   px-4 py-2"
                       style={{
+                        animationDelay: "2s",
                         backgroundColor: row.questSeries.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        animationDelay: `2.5s`,
                       }}
+                      onAnimationStart={() =>
+                        playSoundWithDelay(2, row.questSeries.isMatch)
+                      }
                     >
                       {row.questSeries.value}
                     </td>

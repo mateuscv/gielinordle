@@ -159,7 +159,7 @@ table {
   0% {
     opacity: 0;
     transform: translateY(10px);
-    box-shadow: 0 0 0 2px transparent; /* "fake" border */
+    box-shadow: 0 0 0 2px transparent;
   }
   100% {
     opacity: 1;
@@ -182,7 +182,7 @@ table {
 }
 
 .table-cell-no-border {
-  animation: fadeInSlideUp 1s ease-out forwards;
+  animation: fadeInSlideUp 2s ease-out forwards;
   opacity: 0;
 }
 
@@ -195,16 +195,16 @@ table {
 }
 
 ::-webkit-scrollbar {
-  width: 12px; /* Set the width of the scrollbar */
-  height: 12px; /* Set the height of horizontal scrollbar */
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 10px; /* Rounded corners for the scrollbar track */
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7a552a; /* Darker brown resembling wood or leather */
-  border-radius: 10px; /* Rounded corners for the thumb */
-  border: 2px solid #b18540; /* Border to make it stand out */
+  background: #7a552a;
+  border-radius: 10px;
+  border: 2px solid #b18540;
 }
