@@ -24,6 +24,89 @@ body {
   margin-right: auto;
 }
 
+.chathead-img {
+  width: 100;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-family: "Cinzel", serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #5c3e1f;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.card-title:hover {
+  color: #8b6f39;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.medieval-input {
+  font-family: "Georgia", cursive;
+  font-size: 16px;
+  padding: 10px 12px;
+  background: #f4f1e3;
+  border: 2px solid #936039;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px #ccc, 0 0 8px #a3865d;
+  color: #4b3a2f;
+  outline: none;
+  width: 30%;
+  max-width: 400px;
+  transition: box-shadow 0.2s ease;
+}
+
+.medieval-input::placeholder {
+  color: #a3865d;
+  font-style: italic;
+}
+
+.medieval-input:focus {
+  box-shadow: 0 0 10px #c2a97a;
+  border-color: #b18540;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.medieval-submit {
+  margin-left: 2px;
+  font-family: "Georgia", serif;
+  background-color: #936039;
+  color: white;
+  border: 2px solid #4b3a2f;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-size: 16px;
+}
+
+.medieval-submit:hover {
+  background-color: #b18540;
+  transform: scale(1.05);
+}
+
+.medieval-submit:active {
+  background-color: #7a552a;
+}
+
+.columnTitle {
+  font-family: "Georgia", serif;
+  font-size: 18px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

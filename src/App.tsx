@@ -2,17 +2,28 @@ import React, { useRef, useState } from "react";
 import "./App.css";
 import Card from "react-bootstrap/Card";
 import myData from "./database.json";
+import correctSFX from "./sfx/correct.mp3";
 import { Button } from "react-bootstrap";
 
-type RowData = {
-  id: string;
-  chatheadUrl: string;
-  name: string;
-  species: string;
-  homeland: string;
-  releaseYear: string;
-  questSeries: string;
+type MatchValue = {
+  value: string;
+  isMatch: boolean;
 };
+
+type GuessData = {
+  id: string;
+  chatheadUrl: MatchValue;
+  name: MatchValue;
+  species: MatchValue;
+  homeland: MatchValue;
+  releaseYear: MatchValue;
+  questSeries: MatchValue;
+};
+
+function playCorrectSFX() {
+  const audio = new Audio(correctSFX);
+  audio.play();
+}
 
 function refreshPage() {
   window.location.reload();
@@ -41,9 +52,10 @@ const chosenCharacter = myData[getRandomInt(Object.keys(myData).length)];
 function App() {
   const [charName, setName] = useState("");
   const [result, setResult] = useState<React.ReactNode>(null);
-  const [data, setData] = useState<RowData[]>([]);
+  const [data, setData] = useState<GuessData[]>([]);
+  const characterNames = myData.map((char) => char.Name);
 
-  const addRow = (
+  const addGuessToTable = (
     id: string,
     name: string,
     species: string,
@@ -52,23 +64,45 @@ function App() {
     questSeries: string,
     chatheadUrl: string
   ) => {
-    const newRow: RowData = {
+    const newRow: GuessData = {
       id,
-      name,
-      species,
-      homeland,
-      releaseYear,
-      questSeries,
-      chatheadUrl,
+      chatheadUrl: {
+        value: chatheadUrl,
+        isMatch: chatheadUrl === chosenCharacter.Picture,
+      },
+      name: {
+        value: name,
+        isMatch: compareStrings(name, chosenCharacter.Name) === true,
+      },
+      species: {
+        value: species,
+        isMatch:
+          compareStrings(species, chosenCharacter["Species/Race"]) === true,
+      },
+      homeland: {
+        value: homeland,
+        isMatch: compareStrings(homeland, chosenCharacter.Homeland) === true,
+      },
+      releaseYear: {
+        value: releaseYear,
+        isMatch:
+          compareStrings(releaseYear, chosenCharacter["Release Year"]) === true,
+      },
+      questSeries: {
+        value: questSeries,
+        isMatch:
+          compareStrings(questSeries, chosenCharacter["Quest Series"]) === true,
+      },
     };
 
     setData((prevData) => [...prevData, newRow]);
   };
 
-  const handleSubmit = async (event: { preventDefault: () => void }) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     if (compareStrings(charName, chosenCharacter.Name)) {
+      playCorrectSFX();
       setResult(
         <>
           <div
@@ -83,7 +117,11 @@ function App() {
           </div>
           <h2>{chosenCharacter.Name} </h2>
           <p>{chosenCharacter.Examine}</p>
-          <Button variant="secondary" onClick={refreshPage}>
+          <Button
+            className="medieval-submit"
+            variant="secondary"
+            onClick={refreshPage}
+          >
             Play Again
           </Button>
           <br />
@@ -92,11 +130,11 @@ function App() {
     } else {
       const characterData = await fetchCharacterData(charName);
       if (!characterData) {
-        setResult(<p>Character not found.</p>);
+        setResult(<p>Nothing interesting happens.</p>);
         return;
       }
 
-      addRow(
+      addGuessToTable(
         characterData.Id,
         characterData.Name,
         characterData["Species/Race"],
@@ -105,109 +143,139 @@ function App() {
         characterData["Quest Series"],
         characterData.Picture
       );
-
-      if (
-        compareStrings(
-          characterData["Release Year"],
-          chosenCharacter["Release Year"]
-        )
-      ) {
-        setResult(<p>Same Release Year</p>);
-      } else if (
-        compareStrings(
-          characterData["Quest Series"],
-          chosenCharacter["Quest Series"]
-        )
-      ) {
-        setResult(<p>Same Quest Series</p>);
-      } else if (
-        compareStrings(
-          characterData["Species/Race"],
-          chosenCharacter["Species/Race"]
-        )
-      ) {
-        setResult(<p>Same Species/Race</p>);
-      } else {
-        setResult(<p>No match found</p>);
-      }
     }
   };
+
   return (
     <div className="App d-flex justify-content-center align-items-start min-vh-100 py-4">
       <Card
         style={{ backgroundColor: "rgba(180,180,180,0.92)", width: "50rem" }}
       >
         <Card.Body>
-          <Card.Title
-            style={{
-              fontSize: "32pt",
-              fontFamily: "Georgia",
-              color: "black",
-              textShadow: "0 0 1px #936039",
-            }}
-          >
-            Gielinordle
-          </Card.Title>
+          <Card.Title>Gielinordle</Card.Title>
           <Card.Text>
             <form onSubmit={handleSubmit}>
-              <label style={{ textAlign: "left" }}>
-                Enter your guess...
-                <br />
-                <input
-                  type="text"
-                  value={charName}
-                  onChange={(e) => setName(e.target.value)}
+              <input
+                className="medieval-input"
+                type="text"
+                list={charName.trim() ? "character-names" : undefined}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Type a character name..."
+              />
+              <button type="submit" className="medieval-submit">
+                <img
+                  src="https://runescape.wiki/images/Attack_detail.png?346f8"
+                  alt="Submit"
+                  style={{ width: "24px", height: "24px", rotate: "45deg" }}
                 />
-              </label>
+              </button>
+              <datalist id="character-names">
+                {characterNames.map((name, index) => (
+                  <option key={index} value={name} />
+                ))}
+              </datalist>
             </form>
             <br />
             <div className="result">{result}</div>
-            <br />
             <table
               id="guesses"
               style={{ width: "47rem", justifySelf: "center" }}
             >
-              <thead>
-                <tr>
-                  <td>Chathead</td>
-                  <td>Name</td>
-                  <td>Species/Race</td>
-                  <td>Homeland</td>
-                  <td>Release Year</td>
-                  <td>Quest Series</td>
-                </tr>
-              </thead>
+              {data.length > 0 && (
+                <thead>
+                  <br />
+                  <tr>
+                    <td></td>
+                    <td className="columnTitle">Name</td>
+                    <td className="columnTitle">Species/Race</td>
+                    <td className="columnTitle">Homeland</td>
+                    <td className="columnTitle">Release Year</td>
+                    <td className="columnTitle">Quest Series</td>
+                  </tr>
+                </thead>
+              )}
               <tbody>
                 {data.map((row) => (
                   <tr key={row.id}>
-                    <td className="border border-gray-400 px-4 py-2">
-                      <img src={row.chatheadUrl} width={"60%"} />
+                    <td className="px-4 py-2">
+                      <img
+                        src={row.chatheadUrl.value}
+                        alt="Chathead"
+                        className="chathead-img"
+                      />{" "}
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
-                      {row.name}
+                    <td
+                      className="border border-gray-400 px-4 py-2"
+                      style={{
+                        backgroundColor: row.name.isMatch ? "green" : "#751512",
+                        color: "white",
+                        fontFamily: "Georgia",
+                        fontSize: "18px",
+                      }}
+                    >
+                      {row.name.value}
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
-                      {row.species}
+                    <td
+                      className="border border-gray-400 px-4 py-2"
+                      style={{
+                        backgroundColor: row.species.isMatch
+                          ? "green"
+                          : "#751512",
+                        color: "white",
+                        fontFamily: "Georgia",
+                        fontSize: "18px",
+                      }}
+                    >
+                      {row.species.value}
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
-                      {row.homeland}
+                    <td
+                      className="border border-brown-400 px-4 py-2"
+                      style={{
+                        backgroundColor: row.homeland.isMatch
+                          ? "green"
+                          : "#751512",
+                        color: "white",
+                        fontFamily: "Georgia",
+                        fontSize: "18px",
+                      }}
+                    >
+                      {row.homeland.value}
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
-                      {row.releaseYear}
+                    <td
+                      className="border border-gray-400 px-4 py-2"
+                      style={{
+                        backgroundColor: row.releaseYear.isMatch
+                          ? "green"
+                          : "#751512",
+                        color: "white",
+                        fontFamily: "Georgia",
+                        fontSize: "18px",
+                      }}
+                    >
+                      {row.releaseYear.value}
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
-                      {row.questSeries}
+                    <td
+                      className="border border-gray-400 px-4 py-2"
+                      style={{
+                        backgroundColor: row.questSeries.isMatch
+                          ? "green"
+                          : "#751512",
+                        color: "white",
+                        fontFamily: "Georgia",
+                        fontSize: "18px",
+                      }}
+                    >
+                      {row.questSeries.value}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <br />
             <hr />
             Made with{" "}
             <span style={{ color: "red" }}>
               <img
-                style={{ width: "20px" }}
+                style={{ width: "18px" }}
                 src="https://oldschool.runescape.wiki/images/Hitpoints_icon_%28detail%29.png?a4903&20220119135436"
               />
             </span>{" "}
@@ -222,9 +290,16 @@ function App() {
               {" "}
               the RuneScape wiki
             </a>
+            .
             <br />
-            Gielinordle is an open-source fan project. RuneScape is property of
-            Jagex Ltd.
+            Gielinordle is an{" "}
+            <a
+              href="https://github.com/mateuscv/gielinordle/tree/main"
+              style={{ color: "#936039" }}
+            >
+              open-source
+            </a>{" "}
+            fan project. RuneScape is property of Jagex Ltd.
           </Card.Text>
         </Card.Body>
       </Card>
