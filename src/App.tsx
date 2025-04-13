@@ -1,29 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "react-bootstrap/Card";
-import myData from "./database.json";
+import myData from "./data/database.json";
 import { refreshPage } from "./functions/helpers/refreshPage";
 import { playSoundWithDelay } from "./functions/sound/playSoundWithDelay";
 import { playCorrectSFX } from "./functions/sound/playCorrectSound";
 import { getRandomInt } from "./functions/helpers/getRandomInt";
 import { compareStrings } from "./functions/helpers/compareStrings";
 import { fetchCharacterData } from "./functions/fetchers/fetchCharacterData";
+import { GuessData } from "./types/GuessData";
 import { Button } from "react-bootstrap";
-
-type MatchValue = {
-  value: string;
-  isMatch: boolean;
-};
-
-type GuessData = {
-  id: string;
-  chatheadUrl: MatchValue;
-  name: MatchValue;
-  species: MatchValue;
-  homeland: MatchValue;
-  releaseYear: MatchValue;
-  questSeries: MatchValue;
-};
 
 const chosenCharacter = myData[getRandomInt(Object.keys(myData).length)];
 

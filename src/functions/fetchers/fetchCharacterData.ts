@@ -1,4 +1,4 @@
-import myData from "../../database.json";
+import myData from "../../data/database.json";
 
 export function fetchCharacterData(characterName: string) {
   const characterIndex = myData.findIndex(
