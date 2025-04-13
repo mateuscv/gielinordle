@@ -4,6 +4,16 @@ import Card from "react-bootstrap/Card";
 import myData from "./database.json";
 import { Button } from "react-bootstrap";
 
+type RowData = {
+  id: string;
+  chatheadUrl: string;
+  name: string;
+  species: string;
+  homeland: string;
+  releaseYear: string;
+  questSeries: string;
+};
+
 function refreshPage() {
   window.location.reload();
 }
@@ -31,9 +41,33 @@ const chosenCharacter = myData[getRandomInt(Object.keys(myData).length)];
 function App() {
   const [charName, setName] = useState("");
   const [result, setResult] = useState<React.ReactNode>(null);
+  const [data, setData] = useState<RowData[]>([]);
+
+  const addRow = (
+    id: string,
+    name: string,
+    species: string,
+    homeland: string,
+    releaseYear: string,
+    questSeries: string,
+    chatheadUrl: string
+  ) => {
+    const newRow: RowData = {
+      id,
+      name,
+      species,
+      homeland,
+      releaseYear,
+      questSeries,
+      chatheadUrl,
+    };
+
+    setData((prevData) => [...prevData, newRow]);
+  };
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
+
     if (compareStrings(charName, chosenCharacter.Name)) {
       setResult(
         <>
@@ -44,7 +78,7 @@ function App() {
             <img
               src={chosenCharacter.Picture}
               alt="Character Picture"
-              style={{ maxWidth: "100%", display: "inline-block" }}
+              style={{ maxWidth: "80%", display: "inline-block" }}
             />
           </div>
           <h2>{chosenCharacter.Name} </h2>
@@ -57,6 +91,21 @@ function App() {
       );
     } else {
       const characterData = await fetchCharacterData(charName);
+      if (!characterData) {
+        setResult(<p>Character not found.</p>);
+        return;
+      }
+
+      addRow(
+        characterData.Id,
+        characterData.Name,
+        characterData["Species/Race"],
+        characterData.Homeland,
+        characterData["Release Year"],
+        characterData["Quest Series"],
+        characterData.Picture
+      );
+
       if (
         compareStrings(
           characterData["Release Year"],
@@ -84,12 +133,21 @@ function App() {
     }
   };
   return (
-    <div className="App d-flex vh-100 justify-content-center align-items-center">
+    <div className="App d-flex justify-content-center align-items-start min-vh-100 py-4">
       <Card
         style={{ backgroundColor: "rgba(180,180,180,0.92)", width: "50rem" }}
       >
         <Card.Body>
-          <Card.Title style={{ fontSize: "24pt" }}>RUNEDLE</Card.Title>
+          <Card.Title
+            style={{
+              fontSize: "32pt",
+              fontFamily: "Georgia",
+              color: "black",
+              textShadow: "0 0 1px #936039",
+            }}
+          >
+            Gielinordle
+          </Card.Title>
           <Card.Text>
             <form onSubmit={handleSubmit}>
               <label style={{ textAlign: "left" }}>
@@ -109,14 +167,40 @@ function App() {
               id="guesses"
               style={{ width: "47rem", justifySelf: "center" }}
             >
-              <tr>
-                <td>Chathead</td>
-                <td>Name</td>
-                <td>Species/Race</td>
-                <td>Homeland</td>
-                <td>Release Year</td>
-                <td>Quest Series</td>
-              </tr>
+              <thead>
+                <tr>
+                  <td>Chathead</td>
+                  <td>Name</td>
+                  <td>Species/Race</td>
+                  <td>Homeland</td>
+                  <td>Release Year</td>
+                  <td>Quest Series</td>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((row) => (
+                  <tr key={row.id}>
+                    <td className="border border-gray-400 px-4 py-2">
+                      <img src={row.chatheadUrl} width={"60%"} />
+                    </td>
+                    <td className="border border-gray-400 px-4 py-2">
+                      {row.name}
+                    </td>
+                    <td className="border border-gray-400 px-4 py-2">
+                      {row.species}
+                    </td>
+                    <td className="border border-gray-400 px-4 py-2">
+                      {row.homeland}
+                    </td>
+                    <td className="border border-gray-400 px-4 py-2">
+                      {row.releaseYear}
+                    </td>
+                    <td className="border border-gray-400 px-4 py-2">
+                      {row.questSeries}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
             <br />
             <hr />
@@ -139,7 +223,7 @@ function App() {
               the RuneScape wiki
             </a>
             <br />
-            Runedle is an open-source fan project. RuneScape is property of
+            Gielinordle is an open-source fan project. RuneScape is property of
             Jagex Ltd.
           </Card.Text>
         </Card.Body>

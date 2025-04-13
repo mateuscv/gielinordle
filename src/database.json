@@ -1,5 +1,6 @@
 [
   {
+    "Id": "1",
     "Name": "Azzanadra",
     "Species/Race": "Mahjarrat",
     "Homeland": "Freneskae",
@@ -9,6 +10,7 @@
     "Picture": "https://runescape.wiki/images/Azzanadra_ghost_chathead.png?91ff8&20240220235159"
   },
   {
+    "Id": "2",
     "Name": "Zaros",
     "Species/Race": "God",
     "Homeland": "Freneskae",
@@ -18,6 +20,7 @@
     "Picture": "https://runescape.wiki/images/Zaros_chathead.png?f8645"
   },
   {
+    "Id": "3",
     "Name": "Guthix",
     "Species/Race": "Naragi",
     "Homeland": "Naragun",
@@ -27,6 +30,7 @@
     "Picture": "https://runescape.wiki/images/thumb/Guthix_%28god%29.png/475px-Guthix_%28god%29.png?56631&20240703171928"
   },
   {
+    "Id": "4",
     "Name": "Lowerniel Drakan",
     "Species/Race": "Vampyre",
     "Homeland": "Vampyrium",
@@ -36,6 +40,7 @@
     "Picture": "https://runescape.wiki/images/Lowerniel_Drakan_chathead.png?b304e"
   },
   {
+    "Id": "5",
     "Name": "Vanescula Drakan",
     "Species/Race": "Vampyre",
     "Homeland": "Vampyrium",
@@ -45,6 +50,7 @@
     "Picture": "https://runescape.wiki/images/Vanescula_Drakan_%28human%29_chathead.png?9fe47"
   },
   {
+    "Id": "6",
     "Name": "Veliaf",
     "Species/Race": "Human",
     "Homeland": "Unknown",
@@ -54,6 +60,7 @@
     "Picture": "https://runescape.wiki/images/archive/20220814153513%21Veliaf_Hurtz_chathead.png?af3ba"
   },
   {
+    "Id": "7",
     "Name": "Bob",
     "Species/Race": "Human",
     "Homeland": "Lumbridge",
@@ -63,6 +70,7 @@
     "Picture": "https://runescape.wiki/images/Bob_%28smith%29_chathead.png?41698&20210118114800"
   },
   {
+    "Id": "8",
     "Name": "Hans",
     "Species/Race": "Human",
     "Homeland": "Lumbridge",
@@ -72,6 +80,7 @@
     "Picture": "https://runescape.wiki/images/Hans_chathead.png?73d98&20211218135729"
   },
   {
+    "Id": "9",
     "Name": "Iban",
     "Species/Race": "Human/God",
     "Homeland": "Unknown",
