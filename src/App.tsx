@@ -42,7 +42,9 @@ function compareStrings(stringA: string, stringB: string) {
 }
 
 function fetchCharacterData(characterName: string) {
-  const characterIndex = myData.findIndex((obj) => obj.Name == characterName);
+  const characterIndex = myData.findIndex(
+    (obj) => obj.Name.toUpperCase() == characterName.toUpperCase()
+  );
   const character = myData[characterIndex];
   return character;
 }
@@ -147,7 +149,7 @@ function App() {
   };
 
   return (
-    <div className="App d-flex justify-content-center align-items-start min-vh-100 py-4">
+    <div className="App">
       <Card
         style={{ backgroundColor: "rgba(180,180,180,0.92)", width: "50rem" }}
       >
@@ -197,7 +199,7 @@ function App() {
               <tbody>
                 {data.map((row) => (
                   <tr key={row.id}>
-                    <td className="px-4 py-2">
+                    <td className="table-cell-no-border px-4 py-2">
                       <img
                         src={row.chatheadUrl.value}
                         alt="Chathead"
@@ -205,64 +207,58 @@ function App() {
                       />{" "}
                     </td>
                     <td
-                      className="border border-gray-400 px-4 py-2"
+                      className="table-cell   px-4 py-2"
                       style={{
                         backgroundColor: row.name.isMatch ? "green" : "#751512",
                         color: "white",
-                        fontFamily: "Georgia",
-                        fontSize: "18px",
                       }}
                     >
                       {row.name.value}
                     </td>
                     <td
-                      className="border border-gray-400 px-4 py-2"
+                      className="table-cell   px-4 py-2"
                       style={{
                         backgroundColor: row.species.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        fontFamily: "Georgia",
-                        fontSize: "18px",
+                        animationDelay: `1s`,
                       }}
                     >
                       {row.species.value}
                     </td>
                     <td
-                      className="border border-brown-400 px-4 py-2"
+                      className="table-cell  px-4 py-2"
                       style={{
                         backgroundColor: row.homeland.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        fontFamily: "Georgia",
-                        fontSize: "18px",
+                        animationDelay: `1.5s`,
                       }}
                     >
                       {row.homeland.value}
                     </td>
                     <td
-                      className="border border-gray-400 px-4 py-2"
+                      className="table-cell   px-4 py-2"
                       style={{
                         backgroundColor: row.releaseYear.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        fontFamily: "Georgia",
-                        fontSize: "18px",
+                        animationDelay: `2s`,
                       }}
                     >
                       {row.releaseYear.value}
                     </td>
                     <td
-                      className="border border-gray-400 px-4 py-2"
+                      className="table-cell   px-4 py-2"
                       style={{
                         backgroundColor: row.questSeries.isMatch
                           ? "green"
                           : "#751512",
                         color: "white",
-                        fontFamily: "Georgia",
-                        fontSize: "18px",
+                        animationDelay: `2.5s`,
                       }}
                     >
                       {row.questSeries.value}
