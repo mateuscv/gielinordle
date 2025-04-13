@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "react-bootstrap/Card";
 import myData from "./database.json";
@@ -69,7 +69,30 @@ function App() {
   const [charName, setName] = useState("");
   const [result, setResult] = useState<React.ReactNode>(null);
   const [data, setData] = useState<GuessData[]>([]);
+  const [lives, setLives] = useState(5); // Or whatever number of lives you want
+  const [hasWon, setHasWon] = useState(false);
+
   const characterNames = myData.map((char) => char.Name);
+
+  useEffect(() => {
+    if (lives === 0) {
+      setResult(
+        <>
+          <div>
+            <h2>Oh dear, you are dead!</h2>
+          </div>
+          <Button
+            className="medieval-submit"
+            variant="secondary"
+            onClick={refreshPage}
+          >
+            Play Again
+          </Button>
+          <br />
+        </>
+      );
+    }
+  }, [lives]);
 
   const addGuessToTable = (
     id: string,
@@ -118,6 +141,7 @@ function App() {
     event.preventDefault();
 
     if (compareStrings(charName, chosenCharacter.Name)) {
+      setHasWon(true);
       playCorrectSFX();
       setResult(
         <>
@@ -144,6 +168,7 @@ function App() {
         </>
       );
     } else {
+      setLives((prev) => Math.max(prev - 1, 0));
       const characterData = await fetchCharacterData(charName);
       if (!characterData) {
         setResult(<p>Nothing interesting happens.</p>);
@@ -170,27 +195,49 @@ function App() {
         <Card.Body>
           <Card.Title>Gielinordle</Card.Title>
           <Card.Text>
-            <form onSubmit={handleSubmit}>
-              <input
-                className="medieval-input"
-                type="text"
-                list={charName.trim() ? "character-names" : undefined}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Type a character name..."
-              />
-              <button type="submit" className="medieval-submit">
-                <img
-                  src="https://runescape.wiki/images/Attack_detail.png?346f8"
-                  alt="Submit"
-                  style={{ width: "24px", height: "24px", rotate: "45deg" }}
+            <div className="hud">
+              <form onSubmit={handleSubmit}>
+                <input
+                  className="medieval-input"
+                  type="text"
+                  list={charName.trim() ? "character-names" : undefined}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Type a character name..."
+                  hidden={lives === 0 || hasWon}
                 />
-              </button>
-              <datalist id="character-names">
-                {characterNames.map((name, index) => (
-                  <option key={index} value={name} />
-                ))}
-              </datalist>
-            </form>
+                <button
+                  hidden={lives === 0 || hasWon}
+                  type="submit"
+                  className="medieval-submit"
+                >
+                  <img
+                    src="https://runescape.wiki/images/Attack_detail.png?346f8"
+                    alt="Submit"
+                    style={{ width: "24px", height: "24px", rotate: "45deg" }}
+                  />
+                </button>
+                <datalist id="character-names">
+                  {characterNames.map((name, index) => (
+                    <option key={index} value={name} />
+                  ))}
+                </datalist>
+                &nbsp; &nbsp;
+                <span
+                  style={{
+                    color: "#751512",
+                    fontSize: "22px",
+                    fontFamily: "Georgia",
+                    fontWeight: "800",
+                  }}
+                >
+                  <img
+                    style={{ width: "24px" }}
+                    src="https://oldschool.runescape.wiki/images/Hitpoints_icon_%28detail%29.png?a4903&20220119135436"
+                  />
+                  &nbsp;{lives}
+                </span>
+              </form>{" "}
+            </div>
             <br />
             <div className="result">{result}</div>
             <table
