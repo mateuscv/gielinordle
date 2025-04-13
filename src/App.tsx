@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "react-bootstrap/Card";
 import myData from "./database.json";
-import correctSFX from "./sfx/correct.mp3";
-import matchSFX from "./sfx/categoryMatch.mp3";
+import { refreshPage } from "./functions/helpers/refreshPage";
+import { playSoundWithDelay } from "./functions/sound/playSoundWithDelay";
+import { playCorrectSFX } from "./functions/sound/playCorrectSound";
+import { getRandomInt } from "./functions/helpers/getRandomInt";
+import { compareStrings } from "./functions/helpers/compareStrings";
+import { fetchCharacterData } from "./functions/fetchers/fetchCharacterData";
 import { Button } from "react-bootstrap";
 
 type MatchValue = {
@@ -20,48 +24,6 @@ type GuessData = {
   releaseYear: MatchValue;
   questSeries: MatchValue;
 };
-
-function playMatchSFX() {
-  const audio = new Audio(matchSFX);
-  audio.play();
-}
-
-function playSoundWithDelay(delay: number, match: boolean) {
-  if (match) {
-    setTimeout(() => {
-      playMatchSFX();
-    }, delay);
-  }
-}
-
-function playCorrectSFX() {
-  const audio = new Audio(correctSFX);
-  audio.play();
-}
-
-function refreshPage() {
-  window.location.reload();
-}
-
-function getRandomInt(max: number) {
-  return Math.floor(Math.random() * max);
-}
-
-function compareStrings(stringA: string, stringB: string) {
-  stringA = stringA.toUpperCase();
-  stringB = stringB.toUpperCase();
-  if (stringA == stringB) {
-    return true;
-  }
-}
-
-function fetchCharacterData(characterName: string) {
-  const characterIndex = myData.findIndex(
-    (obj) => obj.Name.toUpperCase() == characterName.toUpperCase()
-  );
-  const character = myData[characterIndex];
-  return character;
-}
 
 const chosenCharacter = myData[getRandomInt(Object.keys(myData).length)];
 
