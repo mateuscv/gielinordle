@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/runedle/static/css/main.2199a899.css",
-    "main.js": "/runedle/static/js/main.30c3db64.js",
-    "static/js/453.3ff0702d.chunk.js": "/runedle/static/js/453.3ff0702d.chunk.js",
-    "static/media/bg.png": "/runedle/static/media/bg.02d53470fa935198ebf9.png",
-    "static/media/correct.mp3": "/runedle/static/media/correct.4cfdd4c183e625502a83.mp3",
-    "static/media/categoryMatch.mp3": "/runedle/static/media/categoryMatch.43116f03aa68f8c2ffc7.mp3",
-    "index.html": "/runedle/index.html",
-    "main.2199a899.css.map": "/runedle/static/css/main.2199a899.css.map",
-    "main.30c3db64.js.map": "/runedle/static/js/main.30c3db64.js.map",
-    "453.3ff0702d.chunk.js.map": "/runedle/static/js/453.3ff0702d.chunk.js.map"
+    "main.css": "/gielinordle/static/css/main.f99c5483.css",
+    "main.js": "/gielinordle/static/js/main.c5405197.js",
+    "static/js/453.3ff0702d.chunk.js": "/gielinordle/static/js/453.3ff0702d.chunk.js",
+    "static/media/bg.png": "/gielinordle/static/media/bg.02d53470fa935198ebf9.png",
+    "static/media/correct.mp3": "/gielinordle/static/media/correct.4cfdd4c183e625502a83.mp3",
+    "static/media/categoryMatch.mp3": "/gielinordle/static/media/categoryMatch.43116f03aa68f8c2ffc7.mp3",
+    "index.html": "/gielinordle/index.html",
+    "main.f99c5483.css.map": "/gielinordle/static/css/main.f99c5483.css.map",
+    "main.c5405197.js.map": "/gielinordle/static/js/main.c5405197.js.map",
+    "453.3ff0702d.chunk.js.map": "/gielinordle/static/js/453.3ff0702d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2199a899.css",
-    "static/js/main.30c3db64.js"
+    "static/css/main.f99c5483.css",
+    "static/js/main.c5405197.js"
   ]
 }
