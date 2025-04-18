@@ -7,6 +7,7 @@ import { playSoundWithDelay } from "./functions/sound/playSoundWithDelay";
 import { playCorrectSFX } from "./functions/sound/playCorrectSound";
 import { getRandomInt } from "./functions/helpers/getRandomInt";
 import { compareStrings } from "./functions/helpers/compareStrings";
+import { isYearTooEarly } from "./functions/helpers/isYearTooEarly";
 import { fetchCharacterData } from "./functions/fetchers/fetchCharacterData";
 import { GuessData } from "./types/GuessData";
 import { Button } from "react-bootstrap";
@@ -74,6 +75,8 @@ function App() {
         value: releaseYear,
         isMatch:
           compareStrings(releaseYear, chosenCharacter["Release Year"]) === true,
+        isTooEarly:
+          isYearTooEarly(releaseYear, chosenCharacter["Release Year"]) === true,
       },
       questSeries: {
         value: questSeries,
@@ -264,7 +267,7 @@ function App() {
                       {row.homeland.value}
                     </td>
                     <td
-                      className="table-cell   px-4 py-2"
+                      className="table-cell px-4 py-2"
                       style={{
                         animationDelay: "1.5s",
                         backgroundColor: row.releaseYear.isMatch
@@ -277,9 +280,19 @@ function App() {
                       }
                     >
                       {row.releaseYear.value}
+                      <br />
+                      {row.releaseYear.isTooEarly ? (
+                        <span style={{ marginLeft: "8px" }} title="Too early">
+                          ⬆️
+                        </span>
+                      ) : !row.releaseYear.isMatch ? (
+                        <span style={{ marginLeft: "8px" }} title="Too late">
+                          ⬇️
+                        </span>
+                      ) : null}
                     </td>
                     <td
-                      className="table-cell   px-4 py-2"
+                      className="table-cell px-4 py-2"
                       style={{
                         animationDelay: "2s",
                         backgroundColor: row.questSeries.isMatch
