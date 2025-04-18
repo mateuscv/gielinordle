@@ -88,5 +88,435 @@
     "Quest Series": "Elf",
     "Examine": "The great and dreadful Lord Iban.",
     "Picture": "https://runescape.wiki/images/Lord_Iban_chathead.png?66bfe&20210517085102"
+  },
+  {
+    "Id": "10",
+    "Name": "Thok",
+    "Species/Race": "Human",
+    "Homeland": "Fremennik Province",
+    "Release Year": "2010",
+    "Quest Series": "None",
+    "Examine": "A mighty Fremennik warrior with more muscles than sense.",
+    "Picture": "https://runescape.wiki/images/Thok_chathead.png?ea6c9"
+  },
+  {
+    "Id": "11",
+    "Name": "Nomad",
+    "Species/Race": "Human",
+    "Homeland": "Edgeville",
+    "Release Year": "2010",
+    "Quest Series": "None",
+    "Examine": "A powerful and mysterious figure.",
+    "Picture": "https://runescape.wiki/images/Nomad_chathead.png?22c3c"
+  },
+  {
+    "Id": "12",
+    "Name": "Sliske",
+    "Species/Race": "Mahjarrat",
+    "Homeland": "Freneskae",
+    "Release Year": "2012",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "A trickster with a love for drama.",
+    "Picture": "https://runescape.wiki/images/Sliske_%28Children_of_Mah%29_chathead.png?0eb55"
+  },
+  {
+    "Id": "13",
+    "Name": "Seren",
+    "Species/Race": "Divine",
+    "Homeland": "Tarddiad",
+    "Release Year": "2014",
+    "Quest Series": "Sliske's Game",
+    "Examine": "The crystalline goddess of the elves.",
+    "Picture": "https://runescape.wiki/images/Seren_chathead.png?c9b20"
+  },
+  {
+    "Id": "14",
+    "Name": "King Roald",
+    "Species/Race": "Human",
+    "Homeland": "Misthalin",
+    "Release Year": "2001",
+    "Quest Series": "Multiple",
+    "Examine": "Varrock's resident monarch.",
+    "Picture": "https://runescape.wiki/images/King_Roald_chathead.png?8f9d2"
+  },
+  {
+    "Id": "15",
+    "Name": "Elena",
+    "Species/Race": "Human",
+    "Homeland": "West Ardougne",
+    "Release Year": "2002",
+    "Quest Series": "Elf",
+    "Examine": "She looks upset.",
+    "Picture": "https://runescape.wiki/images/Elena_chathead.png?f3be2"
+  },
+  {
+    "Id": "16",
+    "Name": "King Lathas",
+    "Species/Race": "Human",
+    "Homeland": "East Ardougne",
+    "Release Year": "2002",
+    "Quest Series": "Elf",
+    "Examine": "King Lathas of East Ardougne.",
+    "Picture": "https://runescape.wiki/images/King_Lathas_chathead.png?bb88d"
+  },
+  {
+    "Id": "17",
+    "Name": "Brundt the Chieftain",
+    "Species/Race": "Human",
+    "Homeland": "Rellekka",
+    "Release Year": "2004",
+    "Quest Series": "Fremennik",
+    "Examine": "The Fremennik tribe's chieftain.",
+    "Picture": "https://runescape.wiki/images/Brundt_the_Chieftain_chathead.png?9dbe4"
+  },
+  {
+    "Id": "18",
+    "Name": "King Narnode Shareen",
+    "Species/Race": "Gnome",
+    "Homeland": "Gnome Stronghold",
+    "Release Year": "2002",
+    "Quest Series": "Gnome",
+    "Examine": "An important looking gnome.",
+    "Picture": "https://runescape.wiki/images/King_Narnode_Shareen_chathead.png?1d72b"
+  },
+  {
+    "Id": "19",
+    "Name": "Zanik",
+    "Species/Race": "Cave Goblin",
+    "Homeland": "Dorgesh-Kaan",
+    "Release Year": "2007",
+    "Quest Series": "Cave Goblin",
+    "Examine": "The Chosen Commander.",
+    "Picture": "https://runescape.wiki/images/Zanik_chathead.png?47d18"
+  },
+  {
+    "Id": "20",
+    "Name": "Lord Daquarius",
+    "Species/Race": "Human",
+    "Homeland": "Falador",
+    "Release Year": "2002",
+    "Quest Series": "Multiple",
+    "Examine": "Leader of Zamorak's Black Knights.",
+    "Picture": "https://runescape.wiki/images/Lord_Daquarius_chathead.png?d304c"
+  },
+  {
+    "Id": "21",
+    "Name": "Evil Dave",
+    "Species/Race": "Human",
+    "Homeland": "Edgeville",
+    "Release Year": "2006",
+    "Quest Series": "Recipe for Disaster",
+    "Examine": "A not-so-evil goth guy.",
+    "Picture": "https://runescape.wiki/images/Evil_Dave_chathead.png?bbf2b"
+  },
+  {
+    "Id": "22",
+    "Name": "Kree'arra",
+    "Species/Race": "Aviansie",
+    "Homeland": "God Wars Dungeon",
+    "Release Year": "2007",
+    "Quest Series": "Sliske's Game",
+    "Examine": "Graceful avatar of Armadyl.",
+    "Picture": "https://runescape.wiki/images/Kree%27arra_chathead.png?83819"
+  },
+  {
+    "Id": "23",
+    "Name": "Kr'il Tsutsaroth",
+    "Species/Race": "Demon",
+    "Homeland": "Zamorak's Realm",
+    "Release Year": "2007",
+    "Quest Series": "Sliske's Game",
+    "Examine": "A servant of the god Zamorak.",
+    "Picture": "https://runescape.wiki/images/Kr%27il_Tsutsaroth_chathead.png?e4f79"
+  },
+  {
+    "Id": "24",
+    "Name": "Commander Zilyana",
+    "Species/Race": "Icyene",
+    "Homeland": "Hallowvale",
+    "Release Year": "2007",
+    "Quest Series": "Sliske's Game",
+    "Examine": "Commander of Saradomin's forces.",
+    "Picture": "https://runescape.wiki/images/Commander_Zilyana_chathead.png?cd1f5"
+  },
+  {
+    "Id": "25",
+    "Name": "General Graardor",
+    "Species/Race": "Bandosian",
+    "Homeland": "Unknown",
+    "Release Year": "2007",
+    "Quest Series": "Sliske's Game",
+    "Examine": "A huge war chief.",
+    "Picture": "https://runescape.wiki/images/General_Graardor_chathead.png?4b287"
+  },
+  {
+    "Id": "26",
+    "Name": "Charos",
+    "Species/Race": "Human",
+    "Homeland": "Meiyerditch",
+    "Release Year": "2019",
+    "Quest Series": "The Elder God Wars",
+    "Examine": "A legendary enchanter and rogue.",
+    "Picture": "https://runescape.wiki/images/Charos_chathead.png?cde21"
+  },
+  {
+    "Id": "27",
+    "Name": "Death",
+    "Species/Race": "Undead",
+    "Homeland": "Teragard",
+    "Release Year": "2007",
+    "Quest Series": "None",
+    "Examine": "The very personification of death.",
+    "Picture": "https://runescape.wiki/images/Death_chathead.png?672f1"
+  },
+  {
+    "Id": "28",
+    "Name": "Lucien",
+    "Species/Race": "Mahjarrat",
+    "Homeland": "Freneskae",
+    "Release Year": "2004",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "A Mahjarrat of incomprehensible power.",
+    "Picture": "https://runescape.wiki/images/Lucien_%28skeletal%29_chathead.png?f109e"
+  },
+  {
+    "Id": "29",
+    "Name": "Hazelmere",
+    "Species/Race": "Gnome",
+    "Homeland": "Yanille",
+    "Release Year": "2002",
+    "Quest Series": "Gnome",
+    "Examine": "An ancient looking gnome.",
+    "Picture": "https://runescape.wiki/images/Hazelmere_chathead.png?4e3cd"
+  },
+  {
+    "Id": "30",
+    "Name": "Ariane",
+    "Species/Race": "Human",
+    "Homeland": "Wizards' Tower",
+    "Release Year": "2012",
+    "Quest Series": "Signature Heroes",
+    "Examine": "A skilled sorceress and seer.",
+    "Picture": "https://runescape.wiki/images/Ariane_chathead.png?04a3a"
+  },
+  {
+    "Id": "31",
+    "Name": "Xenia",
+    "Species/Race": "Human",
+    "Homeland": "Unknown",
+    "Release Year": "2010",
+    "Quest Series": "Signature Heroes",
+    "Examine": "An old adventurer.",
+    "Picture": "https://runescape.wiki/images/Xenia_chathead.png?23baf"
+  },
+  {
+    "Id": "32",
+    "Name": "Linza",
+    "Species/Race": "Human",
+    "Homeland": "Burthorpe",
+    "Release Year": "2014",
+    "Quest Series": "Signature Heroes",
+    "Examine": "She looks like she has a tool for everything.",
+    "Picture": "https://runescape.wiki/images/Linza_chathead.png?8ac93"
+  },
+  {
+    "Id": "33",
+    "Name": "Moia",
+    "Species/Race": "Human/Mahjarrat",
+    "Homeland": "Unknown",
+    "Release Year": "2011",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "Lucien's daughter.",
+    "Picture": "https://runescape.wiki/images/Moia_chathead.png?5d5f7"
+  },
+  {
+    "Id": "34",
+    "Name": "Drezel",
+    "Species/Race": "Human",
+    "Homeland": "Paterdomus",
+    "Release Year": "2003",
+    "Quest Series": "Myreque",
+    "Examine": "A holy man.",
+    "Picture": "https://runescape.wiki/images/Drezel_chathead.png?276c3"
+  },
+  {
+    "Id": "35",
+    "Name": "Kamil",
+    "Species/Race": "Human",
+    "Homeland": "Unknown",
+    "Release Year": "2003",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "Ice warrior.",
+    "Picture": "https://runescape.wiki/images/Kamil_chathead.png?31dfb"
+  },
+  {
+    "Id": "36",
+    "Name": "Delrith",
+    "Species/Race": "Demon",
+    "Homeland": "Unknown",
+    "Release Year": "2001",
+    "Quest Series": "Delrith",
+    "Examine": "A powerful demon, here to destroy Varrock!",
+    "Picture": "https://runescape.wiki/images/Delrith_chathead.png?87e25"
+  },
+  {
+    "Id": "37",
+    "Name": "Aris",
+    "Species/Race": "Human",
+    "Homeland": "Varrock",
+    "Release Year": "2001",
+    "Quest Series": "Delrith",
+    "Examine": "A fortuneteller.",
+    "Picture": "https://runescape.wiki/images/Aris_chathead.png?edad5"
+  },
+  {
+    "Id": "38",
+    "Name": "Malak",
+    "Species/Race": "Vampyre",
+    "Homeland": "Morytania",
+    "Release Year": "2003",
+    "Quest Series": "Mahjarrat Mysteries",
+    "Examine": "One of Morytania's vampyric nobility.",
+    "Picture": "https://runescape.wiki/images/Malak_chathead.png?9a877"
+  },
+  {
+    "Id": "39",
+    "Name": "Kalphite Queen",
+    "Species/Race": "Kalphite",
+    "Homeland": "Kalphite Lair",
+    "Release Year": "2003",
+    "Quest Series": "None",
+    "Examine": "I don't think insect repellent will work...",
+    "Picture": "https://runescape.wiki/images/Kalphite_Queen.png?2fb4b"
+  },
+  {
+    "Id": "40",
+    "Name": "Manni the Reveller",
+    "Species/Race": "Human",
+    "Homeland": "Rellekka",
+    "Release Year": "2004",
+    "Quest Series": "Fremennik",
+    "Examine": "Every innkeeper's best friend!",
+    "Picture": "https://runescape.wiki/images/Manni_the_Reveller_chathead.png?dc50a"
+  },
+  {
+    "Id": "41",
+    "Name": "Peer the Seer",
+    "Species/Race": "Human",
+    "Homeland": "Rellekka",
+    "Release Year": "2004",
+    "Quest Series": "Fremennik",
+    "Examine": "A Fremennik riddler.",
+    "Picture": "https://runescape.wiki/images/Peer_the_Seer_chathead.png?fe122"
+  },
+  {
+    "Id": "42",
+    "Name": "Daero",
+    "Species/Race": "Gnome",
+    "Homeland": "Gnome Stronghold",
+    "Release Year": "2002",
+    "Quest Series": "Gnome",
+    "Examine": "Daero gives off an easy sense of authority.",
+    "Picture": "https://runescape.wiki/images/Daero_chathead.png?312e3"
+  },
+  {
+    "Id": "43",
+    "Name": "Glough",
+    "Species/Race": "Gnome",
+    "Homeland": "Gnome Stronghold",
+    "Release Year": "2002",
+    "Quest Series": "Gnome",
+    "Examine": "Rough-looking gnome.",
+    "Picture": "https://runescape.wiki/images/Glough_chathead.png?b197f"
+  },
+  {
+    "Id": "44",
+    "Name": "Agrith-Naar",
+    "Species/Race": "Demon",
+    "Homeland": "Unknown",
+    "Release Year": "2001",
+    "Quest Series": "Delrith",
+    "Examine": "A summoned demon.",
+    "Picture": "https://runescape.wiki/images/Agrith_Naar_chathead.png?e120a"
+  },
+  {
+    "Id": "45",
+    "Name": "TzKal-Zuk",
+    "Species/Race": "TokHaar",
+    "Homeland": "Elder Halls",
+    "Release Year": "2021",
+    "Quest Series": "The Elder God Wars",
+    "Examine": "The first champion of the Fight Kiln.",
+    "Picture": "https://runescape.wiki/images/Zuk_chathead.png?25c6e"
+  },
+  {
+    "Id": "46",
+    "Name": "Kerapac",
+    "Species/Race": "Dragonkin",
+    "Homeland": "Unknown",
+    "Release Year": "2021",
+    "Quest Series": "The Elder God Wars",
+    "Examine": "A powerful - yet seemingly reasonable - dragonkin.",
+    "Picture": "https://runescape.wiki/images/Kerapac_chathead.png?21ce2"
+  },
+  {
+    "Id": "47",
+    "Name": "Osman",
+    "Species/Race": "Human",
+    "Homeland": "Al Kharid",
+    "Release Year": "2001",
+    "Quest Series": "Desert",
+    "Examine": "Spymaster of Al Kharid.",
+    "Picture": "https://runescape.wiki/images/Osman_chathead.png?4091e"
+  },
+  {
+    "Id": "48",
+    "Name": "Leela",
+    "Species/Race": "Human",
+    "Homeland": "Draynor",
+    "Release Year": "2001",
+    "Quest Series": "Desert",
+    "Examine": "An agent of Al Kharid.",
+    "Picture": "https://runescape.wiki/images/Leela_chathead.png?de087"
+  },
+  {
+    "Id": "49",
+    "Name": "Redbeard Frank",
+    "Species/Race": "Human",
+    "Homeland": "Port Sarim",
+    "Release Year": "2001",
+    "Quest Series": "Pirate",
+    "Examine": "A pirate.",
+    "Picture": "https://runescape.wiki/images/Redbeard_Frank_chathead.png?7a264"
+  },
+  {
+    "Id": "50",
+    "Name": "Rabid Jack",
+    "Species/Race": "Human (Undead)",
+    "Homeland": "Unknown",
+    "Release Year": "2008",
+    "Quest Series": "Pirate",
+    "Examine": "It's Rabid Jack!",
+    "Picture": "https://runescape.wiki/images/Rabid_Jack_chathead.png?00bd0"
+  },
+  {
+    "Id": "51",
+    "Name": "Duke Horacio",
+    "Species/Race": "Human",
+    "Homeland": "Lumbridge",
+    "Release Year": "2001",
+    "Quest Series": "Multiple",
+    "Examine": "Duke Horacio of Lumbridge.",
+    "Picture": "https://runescape.wiki/images/Duke_Horacio_chathead.png?54a3d"
+  },
+  {
+    "Id": "52",
+    "Name": "Wizard Mizgog",
+    "Species/Race": "Human",
+    "Homeland": "Wizards' Tower",
+    "Release Year": "2001",
+    "Quest Series": "None",
+    "Examine": "Master of Beads.",
+    "Picture": "https://runescape.wiki/images/Wizard_Mizgog_chathead.png?acb8d"
   }
 ]
