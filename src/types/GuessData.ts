@@ -3,12 +3,16 @@ type MatchValue = {
   isMatch: boolean;
 };
 
+type YearMatchValue = MatchValue & {
+  isTooEarly: boolean;
+};
+
 export type GuessData = {
   id: string;
   chatheadUrl: MatchValue;
   name: MatchValue;
   species: MatchValue;
   homeland: MatchValue;
-  releaseYear: MatchValue;
+  releaseYear: YearMatchValue;
   questSeries: MatchValue;
 };
