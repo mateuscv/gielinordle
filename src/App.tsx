@@ -17,7 +17,7 @@ function App() {
   const [charName, setName] = useState("");
   const [result, setResult] = useState<React.ReactNode>(null);
   const [data, setData] = useState<GuessData[]>([]);
-  const [lives, setLives] = useState(5); // Or whatever number of lives you want
+  const [lives, setLives] = useState(10);
   const [hasWon, setHasWon] = useState(false);
 
   const characterNames = myData.map((char) => char.Name);
@@ -165,9 +165,11 @@ function App() {
                   />
                 </button>
                 <datalist id="character-names">
-                  {characterNames.map((name, index) => (
-                    <option key={index} value={name} />
-                  ))}
+                  {characterNames
+                    .sort((a, b) => a.localeCompare(b))
+                    .map((name, index) => (
+                      <option key={index} value={name} />
+                    ))}
                 </datalist>
                 &nbsp; &nbsp;
                 <span
@@ -199,7 +201,7 @@ function App() {
                     <td></td>
                     <td className="columnTitle">Name</td>
                     <td className="columnTitle">Species/Race</td>
-                    <td className="columnTitle">Homeland</td>
+                    <td className="columnTitle">Origin</td>
                     <td className="columnTitle">Release Year</td>
                     <td className="columnTitle">Quest Series</td>
                   </tr>
@@ -208,11 +210,15 @@ function App() {
               <tbody>
                 {data.map((row) => (
                   <tr key={row.id}>
-                    <td className="table-cell-no-border px-4 py-2">
+                    <td
+                      style={{ textAlign: "center", overflow: "hidden" }}
+                      className="table-cell-no-border px-4 py-2"
+                    >
                       <img
                         src={row.chatheadUrl.value}
                         alt="Chathead"
                         className="chathead-img"
+                        style={{ objectFit: "scale-down" }}
                       />{" "}
                     </td>
                     <td
