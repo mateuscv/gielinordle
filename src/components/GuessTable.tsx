@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { playSoundWithDelay } from "../functions/sound/playSoundWithDelay";
+import { playAllMatchSoundsForGuess } from "../functions/sound/playAllMatchSoundsForGuess";
 import { GuessData } from "../types/GuessData";
 
 interface GuessTableProps {
@@ -9,24 +9,15 @@ interface GuessTableProps {
 const GuessTable: React.FC<GuessTableProps> = ({ data }) => {
   const prevDataLength = useRef(0);
 
-  // Play match sounds for the latest guess row, with delays for each column
   useEffect(() => {
     if (data.length > prevDataLength.current && data.length > 0) {
       const latestGuess = data[data.length - 1];
-      playMatchSoundsForRow(latestGuess);
+      playAllMatchSoundsForGuess(latestGuess);
     }
     prevDataLength.current = data.length;
   }, [data]);
 
-  // Helper function: play match sound for each column in the guess row
-  function playMatchSoundsForRow(row: GuessData) {
-    // Play sound for each column, with increasing delay
-    playSoundWithDelay(0, row.name.isMatch);
-    playSoundWithDelay(0.5, row.species.isMatch);
-    playSoundWithDelay(1, row.homeland.isMatch);
-    playSoundWithDelay(1.5, row.releaseYear.isMatch);
-    playSoundWithDelay(2, row.questSeries.isMatch);
-  }
+  // ...existing code...
 
   return (
     <table id="guesses" style={{ width: "47rem", justifySelf: "center" }}>
