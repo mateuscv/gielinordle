@@ -9,6 +9,6 @@ export function playSoundWithDelay(delay: number, match: boolean) {
   if (match) {
     setTimeout(() => {
       playMatchSFX();
-    }, delay);
+    }, delay * 1000);
   }
 }
