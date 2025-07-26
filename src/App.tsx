@@ -3,13 +3,17 @@ import "./App.css";
 import Card from "react-bootstrap/Card";
 import myData from "./data/database.json";
 import { refreshPage } from "./functions/helpers/refreshPage";
-import { playSoundWithDelay } from "./functions/sound/playSoundWithDelay";
 import { playCorrectSFX } from "./functions/sound/playCorrectSound";
 import { getRandomInt } from "./functions/helpers/getRandomInt";
 import { compareStrings } from "./functions/helpers/compareStrings";
 import { isYearTooEarly } from "./functions/helpers/isYearTooEarly";
 import { fetchCharacterData } from "./functions/fetchers/fetchCharacterData";
 import { GuessData } from "./types/GuessData";
+import Hud from "./components/Hud";
+import Result from "./components/Result";
+import GuessTable from "./components/GuessTable";
+import Footer from "./components/Footer";
+
 import { Button } from "react-bootstrap";
 
 const chosenCharacter = myData[getRandomInt(Object.keys(myData).length)];
@@ -147,206 +151,19 @@ function App() {
           <Card.Title>Gielinordle</Card.Title>
           <Card.Text>
             <div className="hud">
-              <form onSubmit={handleSubmit}>
-                <input
-                  className="medieval-input"
-                  type="text"
-                  list={charName.trim() ? "character-names" : undefined}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Type a character name..."
-                  hidden={lives === 0 || hasWon}
-                />
-                <button
-                  hidden={lives === 0 || hasWon}
-                  type="submit"
-                  className="medieval-submit"
-                >
-                  <img
-                    src="https://runescape.wiki/images/Attack_detail.png?346f8"
-                    alt="Submit"
-                    style={{ width: "24px", height: "24px", rotate: "45deg" }}
-                  />
-                </button>
-                <datalist id="character-names">
-                  {characterNames
-                    .sort((a, b) => a.localeCompare(b))
-                    .map((name, index) => (
-                      <option key={index} value={name} />
-                    ))}
-                </datalist>
-                &nbsp; &nbsp;
-                <span
-                  style={{
-                    color: "#751512",
-                    fontSize: "22px",
-                    fontFamily: "Georgia",
-                    fontWeight: "800",
-                  }}
-                >
-                  <img
-                    style={{ width: "24px" }}
-                    src="https://oldschool.runescape.wiki/images/Hitpoints_icon_%28detail%29.png?a4903&20220119135436"
-                  />
-                  &nbsp;{lives}
-                </span>
-              </form>{" "}
+              <Hud
+                charName={charName}
+                setName={setName}
+                handleSubmit={handleSubmit}
+                lives={lives}
+                hasWon={hasWon}
+                characterNames={characterNames}
+              />
             </div>
             <br />
-            <div className="result">{result}</div>
-            <table
-              id="guesses"
-              style={{ width: "47rem", justifySelf: "center" }}
-            >
-              {data.length > 0 && (
-                <thead>
-                  <br />
-                  <tr>
-                    <td></td>
-                    <td className="columnTitle">Name</td>
-                    <td className="columnTitle">Species/Race</td>
-                    <td className="columnTitle">Origin</td>
-                    <td className="columnTitle">Release Year</td>
-                    <td className="columnTitle">Quest Series</td>
-                  </tr>
-                </thead>
-              )}
-              <tbody>
-                {data.map((row) => (
-                  <tr key={row.id}>
-                    <td
-                      style={{ textAlign: "center", overflow: "hidden" }}
-                      className="table-cell-no-border px-4 py-2"
-                    >
-                      <img
-                        src={row.chatheadUrl.value}
-                        alt="Chathead"
-                        className="chathead-img"
-                        style={{ objectFit: "scale-down" }}
-                      />{" "}
-                    </td>
-                    <td
-                      className="table-cell   px-4 py-2"
-                      style={{
-                        backgroundColor: row.name.isMatch ? "green" : "#751512",
-                        color: "white",
-                      }}
-                      onAnimationStart={() =>
-                        playSoundWithDelay(0, row.name.isMatch)
-                      }
-                    >
-                      {row.name.value}
-                    </td>
-                    <td
-                      className="table-cell   px-4 py-2"
-                      style={{
-                        animationDelay: "0.5s",
-                        backgroundColor: row.species.isMatch
-                          ? "green"
-                          : "#751512",
-                        color: "white",
-                      }}
-                      onAnimationStart={() =>
-                        playSoundWithDelay(0.5, row.species.isMatch)
-                      }
-                    >
-                      {row.species.value}
-                    </td>
-                    <td
-                      className="table-cell  px-4 py-2"
-                      style={{
-                        animationDelay: "1s",
-                        backgroundColor: row.homeland.isMatch
-                          ? "green"
-                          : "#751512",
-                        color: "white",
-                      }}
-                      onAnimationStart={() =>
-                        playSoundWithDelay(1, row.homeland.isMatch)
-                      }
-                    >
-                      {row.homeland.value}
-                    </td>
-                    <td
-                      className="table-cell px-4 py-2"
-                      style={{
-                        animationDelay: "1.5s",
-                        backgroundColor: row.releaseYear.isMatch
-                          ? "green"
-                          : "#751512",
-                        color: "white",
-                      }}
-                      onAnimationStart={() =>
-                        playSoundWithDelay(1.5, row.releaseYear.isMatch)
-                      }
-                    >
-                      {row.releaseYear.value}
-                      <br />
-                      {row.releaseYear.isTooEarly ? (
-                        <span style={{ marginLeft: "8px" }} title="Too early">
-                          ⬆️
-                        </span>
-                      ) : !row.releaseYear.isMatch ? (
-                        <span style={{ marginLeft: "8px" }} title="Too late">
-                          ⬇️
-                        </span>
-                      ) : null}
-                    </td>
-                    <td
-                      className="table-cell px-4 py-2"
-                      style={{
-                        animationDelay: "2s",
-                        backgroundColor: row.questSeries.isMatch
-                          ? "green"
-                          : "#751512",
-                        color: "white",
-                      }}
-                      onAnimationStart={() =>
-                        playSoundWithDelay(2, row.questSeries.isMatch)
-                      }
-                    >
-                      {row.questSeries.value}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <hr />
-            Made with{" "}
-            <span style={{ color: "red" }}>
-              <img
-                style={{ width: "18px" }}
-                src="https://oldschool.runescape.wiki/images/Hitpoints_icon_%28detail%29.png?a4903&20220119135436"
-              />
-            </span>{" "}
-            by{" "}
-            <a href="https://github.com/mateuscv" style={{ color: "#936039" }}>
-              {" "}
-              Mateus
-            </a>
-            &nbsp;and&nbsp;
-            <a
-              href="https://github.com/mateuscv/gielinordle/graphs/contributors"
-              style={{ color: "#936039" }}
-            >
-              contributors
-            </a>
-            .
-            <br />
-            All data gathered from{" "}
-            <a href="https://runescape.wiki/" style={{ color: "#936039" }}>
-              {" "}
-              the RuneScape wiki
-            </a>
-            .
-            <br />
-            Gielinordle is an{" "}
-            <a
-              href="https://github.com/mateuscv/gielinordle/tree/main"
-              style={{ color: "#936039" }}
-            >
-              open-source
-            </a>{" "}
-            fan project. RuneScape is property of Jagex Ltd.
+            <Result result={result} />
+            <GuessTable data={data} />
+            <Footer />
           </Card.Text>
         </Card.Body>
       </Card>
