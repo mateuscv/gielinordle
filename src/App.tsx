@@ -323,7 +323,15 @@ function App() {
               {" "}
               Mateus
             </a>
-            .<br />
+            &nbsp;and&nbsp;
+            <a
+              href="https://github.com/mateuscv/gielinordle/graphs/contributors"
+              style={{ color: "#936039" }}
+            >
+              contributors
+            </a>
+            .
+            <br />
             All data gathered from{" "}
             <a href="https://runescape.wiki/" style={{ color: "#936039" }}>
               {" "}
